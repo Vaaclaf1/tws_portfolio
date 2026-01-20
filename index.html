@@ -1,182 +1,185 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIZARRE PORTFOLIO FINAL</title>
+    <title>DEV // ARCHITECT</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <link rel="icon" type="image/png" href="img/logo.png">
 </head>
-<body class="no-cursor">
-    <div class="noise-overlay"></div>
+<body>
 
-    <div class="preloader" id="preloader">
-        <div class="loader-content">
-            <span class="sys-text">SYSTEM_INITIALIZING...</span>
-            <span class="counter">0%</span>
-        </div>
+    <div class="preloader">
+        <div class="counter">0%</div>
+        <div class="loader-line"></div>
     </div>
 
-    <div class="custom-cursor" id="customCursor"></div>
+    <div class="noise"></div>
+    <div class="cursor"></div>
 
-    <header class="header">
-        <div class="logo" data-cursor-hover>BIZARRE.DEV</div>
+    <nav>
+        <div class="logo magnet">KIRKY<sup>©24</sup></div>
         
-        <div class="header-right">
-            <a href="#contact" class="email-btn desktop-only" data-cursor-hover>[ SEND PROPOSAL ]</a>
-            
-            <div class="hamburger" id="hamburger" data-cursor-hover>
+        <div class="burger magnet">
+            <div class="burger-lines">
                 <span></span>
                 <span></span>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <div class="menu-overlay" id="menuOverlay">
-        <nav class="menu-nav">
-            <a href="#work" class="menu-item">
-                <span class="menu-num">01</span>
-                <span class="menu-text glitch" data-text="WORK">WORK</span>
-            </a>
-            
-            <a href="#socials" class="menu-item">
-                <span class="menu-num">02</span>
-                <span class="menu-text glitch" data-text="SOCIALS">SOCIALS</span>
-            </a>
-
-            <a href="#contact" class="menu-item">
-                <span class="menu-num">03</span>
-                <span class="menu-text glitch" data-text="CONTACT">CONTACT</span>
-            </a>
-        </nav>
-        <div class="menu-footer">
-            <span>BASED IN PRAGUE</span>
-            <span>2026</span>
+    <div class="mobile-menu-overlay">
+        <div class="mobile-links">
+            <a href="#work" class="m-link">WORK</a>
+            <a href="#services" class="m-link">SERVICES</a> <a href="#about" class="m-link">ABOUT</a>
+            <a href="#contact" class="m-link">CONTACT</a>
+        </div>
+        <div class="mobile-footer">
+            CZECH REPUBLIC © 2026
         </div>
     </div>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="glitch" data-text="FULL STACK">FULL STACK</span><br>
-                <span class="glitch" data-text="CREATIVE">CREATIVE</span><br>
-                <span class="glitch" data-text="DEVELOPER">DEVELOPER</span>
-            </h1>
-            <div class="hero-meta">
-                <span>SCROLL TO EXPLORE</span>
-                <span>BASED IN PRAGUE</span>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <div class="line-mask"><h1 class="reveal-text">DIGITAL</h1></div>
+                <div class="line-mask"><h1 class="reveal-text outline">EXPERIENCE</h1></div>
+                <div class="line-mask"><h1 class="reveal-text">ARCHITECT</h1></div>
             </div>
-        </div>
-    </section>
+            <div class="hero-sub">
+                <p>[ FRONTEND & CREATIVE DEV ]</p>
+                <p>SCROLL DOWN ↓</p>
+            </div>
+        </section>
 
-    <main class="grid-container" id="work">
-
-        <div class="grid-item span-2 text-block">
-            <h2>DIGITAL<br>DESIGN<br>& CODE</h2>
-            <p class="meta">AVAILABLE FOR FREELANCE</p>
-        </div>
-
-        <div class="grid-item span-2 info-block">
-            <span class="label">/// SERVICES</span>
-            <ul>
-                <li>Web Dev &gt;</li>
-                <li>UI/UX Design &gt;</li>
-                <li>WebGL & Creative &gt;</li>
-            </ul>
-        </div>
-
-        <div class="grid-item span-2 info-block">
-            <span class="label">/// SYSTEM_CORE</span>
-            <div class="tech-list">
-                <span>JAVASCRIPT</span>
-                <span>REACT</span>
-                <span>TYPESCRIPT</span>
-                <span>NODE.JS</span>
-                <span>THREE.JS</span>
-                <span>FIGMA</span>
+        <div class="marquee-wrapper">
+            <div class="marquee">
+                <span>INTERACTIVE WEB — CREATIVE CODING — UI/UX DESIGN — NEXT.JS — WEBGL — </span>
+                <span>INTERACTIVE WEB — CREATIVE CODING — UI/UX DESIGN — NEXT.JS — WEBGL — </span>
             </div>
         </div>
 
-        <div class="grid-item span-2 info-block">
-            <span class="label">/// OPERATOR_DATA</span>
-            <ul class="data-sheet">
-                <li><span>LOC:</span> PRAGUE, CZ</li>
-                <li><span>EXP:</span> 4+ YEARS</li>
-                <li><span>STATUS:</span> AVAILABLE</li>
-            </ul>
-        </div>
+        <section id="work" class="work">
+            <div class="work-container">
+                <div class="work-left">
+                    <div class="section-head">
+                        <span>(01)</span>
+                        <h2>SELECTED WORKS</h2>
+                    </div>
 
-        <a href="https://www.youtube.com/@shr3k696" class="grid-item span-3 archive-block" id="socials" data-cursor-hover>
-            <div class="archive-image">
-                <img src="img/uzumaki.gif" alt="Youtube Channel">
-                <div class="hover-overlay"><span>PLAY_VIDEO</span></div>
-            </div>
-            <div class="archive-meta">
-                <span>/// SOURCE: YOUTUBE</span>
-                <span>STATUS: ONLINE</span>
-            </div>
-        </a>
+                    <div class="project-list">
+                        <div class="project-item" data-index="0">
+                            <div class="p-info">
+                                <h3>NEBULA DASHBOARD</h3>
+                                <p>Fintech / React / D3.js</p>
+                            </div>
+                            <div class="p-year">2024</div>
+                        </div>
 
-        <a href="https://github.com/Vaaclaf1" class="grid-item span-1 tall archive-block" data-cursor-hover>
-            <div class="archive-image">
-                <img src="img/obrazek2.jpg" alt="GitHub Repo">
-                <div class="hover-overlay"><span>VIEW_CODE</span></div>
-            </div>
-            <div class="archive-meta vertical">
-                <span>/// REPO</span>
-                <span>GIT</span>
-            </div>
-        </a>
+                        <div class="project-item" data-index="1">
+                            <div class="p-info">
+                                <h3>AESTHETIC E-COMM</h3>
+                                <p>Fashion / Shopify / Liquid</p>
+                            </div>
+                            <div class="p-year">2023</div>
+                        </div>
 
-        <a href="https://www.instagram.com/_vostiik_/" class="grid-item span-3 archive-block" data-cursor-hover>
-            <div class="archive-image">
-                <img src="img/uzumaki2.gif" alt="Instagram Profile">
-                <div class="hover-overlay"><span>VIEW_PROFILE</span></div>
-            </div>
-            <div class="archive-meta">
-                <span>/// SOURCE: INSTAGRAM</span>
-                <span>LATEST_POST</span>
-            </div>
-        </a>
-
-        <div class="grid-item span-full text-block" style="background: #050505;">
-            <span class="label">/// INCOMING_TRANSMISSION</span>
-            <blockquote style="font-family: 'Courier New', monospace; font-size: 1.5rem; color: #fff; margin-top: 20px; line-height: 1.4;">
-                "DESIGN IS NOT JUST WHAT IT LOOKS LIKE AND FEELS LIKE.<br>
-                <span style="color: #666;">DESIGN IS HOW IT WORKS."</span>
-            </blockquote>
-            <div style="margin-top: 20px; font-family: 'Courier New', monospace; font-size: 0.9rem;">
-                SENDER: STEVE_JOBS_GHOST<br>
-                STATUS: DECRYPTED
-            </div>
-        </div>
-
-        <div class="grid-item span-full contact-block" id="contact">
-            <div class="contact-wrapper">
-                <div class="contact-text">
-                    <h2>LET'S<br>WORK<br>TOGETHER</h2>
-                    <p class="contact-sub">Tell me about your project.</p>
+                        <div class="project-item" data-index="2">
+                            <div class="p-info">
+                                <h3>PORTFOLIO V1</h3>
+                                <p>Personal / GSAP / WebGL</p>
+                            </div>
+                            <div class="p-year">2022</div>
+                        </div>
+                    </div>
                 </div>
-                <form action="https://formspree.io/f/xbddgwab" method="POST" class="custom-form">
-                    <div class="input-group">
-                        <input type="email" name="email" placeholder="YOUR EMAIL" required data-cursor-hover>
+
+                <div class="work-right">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" class="p-img active" alt="">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop" class="p-img" alt="">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" class="p-img" alt="">
                     </div>
-                    <div class="input-group">
-                        <textarea name="message" rows="4" placeholder="YOUR MESSAGE" required data-cursor-hover></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" data-cursor-hover>[ SEND PROPOSAL ]</button>
-                </form>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="grid-item span-full footer-bar">
-            <span>© 2026 BIZARRE.DEV</span>
-            <span class="desktop-only">ALL RIGHTS RESERVED</span>
-        </div>
+        <section id="services" class="services">
+            <div class="section-head">
+                <span>(02)</span>
+                <h2>CAPABILITIES</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>DEVELOPMENT</h3>
+                    <ul>
+                        <li>Frontend Architecture</li>
+                        <li>Creative Coding (WebGL)</li>
+                        <li>React / Next.js Ecosystems</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3>DESIGN</h3>
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Interaction Design</li>
+                        <li>Motion & Animation</li>
+                        <li>Design Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
+        <section id="about" class="about">
+            <p class="big-statement">
+                I DON'T JUST WRITE CODE. I CRAFT <span class="highlight">IMMERSIVE</span> DIGITAL JOURNEYS THAT LEAVE A MARK. FOCUSING ON MOTION, TYPOGRAPHY, AND PERFORMANCE.
+            </p>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="section-head">
+                <span>(03)</span>
+                <h2>START A PROJECT</h2>
+            </div>
+
+            <form action="https://formspree.io/f/xbddgwab" method="POST">
+                <div class="input-wrap">
+                    <label>WHAT'S YOUR NAME?</label>
+                    <input type="text" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="input-wrap">
+                    <label>YOUR EMAIL</label>
+                    <input type="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="input-wrap">
+                    <label>TELL ME MORE</label>
+                    <textarea name="message" placeholder="I have an idea..." rows="4" required></textarea>
+                </div>
+                <button type="submit" class="magnet">SEND PROPOSAL</button>
+            </form>
+            
+            <footer>
+    <div class="socials">
+        <a href="https://github.com/tvoje-jmeno" target="_blank" rel="noopener noreferrer" class="magnet">GITHUB</a>
+        <a href="https://linkedin.com/in/tvoje-jmeno" target="_blank" rel="noopener noreferrer" class="magnet">LINKEDIN</a>
+        <a href="https://instagram.com/tvoje-jmeno" target="_blank" rel="noopener noreferrer" class="magnet">INSTAGRAM</a>
+    </div>
+    <div class="meta-info">
+    <span>PILSEN, CZ</span>
+    <span id="time-display">00:00 GMT+1</span>
+</div>
+    <p>© 2026</p>
+</footer>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
