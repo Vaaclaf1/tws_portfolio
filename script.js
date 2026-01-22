@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
        ----------------------------------------------------------------- */
     
     // Mouse movement parallax (Desktop)
-    if (window.matchMedia("(pointer: fine)").matches) {
+    if (window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches) {
         const heroSection = document.querySelector('.hero');
         const heroText = document.querySelector('.hero-text');
 
