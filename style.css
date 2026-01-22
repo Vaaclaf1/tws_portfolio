@@ -1,3 +1,6 @@
+/* -----------------------------------------------------------------
+   VARIABLES & RESET
+   ----------------------------------------------------------------- */
 :root {
     --bg: #0b0b0b;
     --text: #eaeaea;
@@ -12,19 +15,18 @@
 html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; /* Ořízne vše, co přesahuje šířku */
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
 }
 
 body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-main);
-    /* overflow-x už je vyřešeno nahoře v html, body */
 }
 
-/* PRELOADER */
+/* -----------------------------------------------------------------
+   GLOBAL EFFECTS (LOADER, NOISE, CURSOR)
+   ----------------------------------------------------------------- */
 .preloader {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background: var(--bg); z-index: 9999;
@@ -37,26 +39,13 @@ body {
     transition: width 0.1s; max-width: 300px;
 }
 
-/* FINE FILM GRAIN (Decentní textura) */
 .noise {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    pointer-events: none; 
-    z-index: 999;
-    
-    /* Nastavení průhlednosti - 0.05 až 0.07 je ideální */
-    opacity: 0.12; 
-    
-    /* Tento mód zajistí, že šum splyne s pozadím (nebude jen šedý) */
-    mix-blend-mode: overlay; 
-    
-    /* Generované SVG data (nemusíš nic stahovat) */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 999;
+    opacity: 0.12; mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
-/* CUSTOM CURSOR */
+
 .cursor {
     width: 20px; height: 20px; background: var(--accent);
     border-radius: 50%; position: fixed; pointer-events: none;
@@ -66,7 +55,9 @@ body {
 }
 .cursor.hovered { width: 80px; height: 80px; background: white; opacity: 0.1; }
 
-/* NAV - UPDATED */
+/* -----------------------------------------------------------------
+   NAVIGATION
+   ----------------------------------------------------------------- */
 nav {
     display: flex; justify-content: space-between; align-items: center;
     padding: 2rem 4vw; position: fixed; width: 100%; top: 0; z-index: 200;
@@ -74,7 +65,6 @@ nav {
 }
 .logo { font-weight: bold; font-size: 1.2rem; }
 
-/* BURGER - Always visible now */
 .burger { 
     display: flex; align-items: center; justify-content: center;
     width: 50px; height: 50px; cursor: pointer; 
@@ -87,7 +77,6 @@ nav {
 .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
 .burger.active span:nth-child(2) { transform: rotate(-45deg) translate(5px, -6px); }
 
-/* MOBILE MENU OVERLAY */
 .mobile-menu-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background: var(--bg); z-index: 150;
@@ -96,100 +85,48 @@ nav {
 }
 .mobile-menu-overlay.active { transform: translateY(0); }
 
-/* --- PŘIDAT TOTO (Zajistí seřazení pod sebou) --- */
-.mobile-links {
-    display: flex;
-    flex-direction: column; /* Klíčové: řadí prvky vertikálně */
-    align-items: center;    /* Vycentruje je na střed */
-    gap: 1rem;              /* Mezera mezi odkazy (místo marginu) */
-}
-
+.mobile-links { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .m-link {
-    font-size: 3rem; 
-    color: var(--text); 
-    text-decoration: none;
-    font-weight: 800; 
-    text-transform: uppercase;
-    transition: color 0.3s;
-    
-    /* UPRAVENO: */
-    display: block;      /* Aby se choval jako blok */
-    margin: 0;           /* Margin už řešíme pomocí 'gap' výše */
-    line-height: 1.2;
+    font-size: 3rem; color: var(--text); text-decoration: none;
+    font-weight: 800; text-transform: uppercase;
+    transition: color 0.3s; display: block; line-height: 1.2;
 }
-
 .m-link:hover { color: var(--accent); -webkit-text-stroke: 1px var(--text); }
 .mobile-footer { position: absolute; bottom: 2rem; font-family: var(--font-mono); opacity: 0.5; }
-/* HERO - FINAL FIX */
+
+/* -----------------------------------------------------------------
+   HERO SECTION
+   ----------------------------------------------------------------- */
 .hero {
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column;
-    justify-content: center; 
-    padding: 0 4vw; /* Padding po stranách */
-    padding-top: 80px; 
-    overflow: hidden; 
-    width: 100%;
-    perspective: 1000px;
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; padding: 80px 4vw 0; 
+    overflow: hidden; perspective: 1000px;
 }
-
 .hero-text { 
-    position: relative; 
-    z-index: 10; 
-    width: 100%;
-    /* Zajistí, že text bude vycentrovaný, pokud je menší než šířka */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Nebo 'center', pokud chceš text na střed */
+    position: relative; z-index: 10; width: 100%;
+    display: flex; flex-direction: column; align-items: flex-start;
 }
-
-/* MASKA PRO ANIMACI */
 .line-mask { 
-    overflow: hidden; 
-    display: block;
-    
-    /* Větší prostor dole pro písmena co jdou pod řádek */
-    padding-bottom: 20px; 
-    margin-bottom: -20px;
-    
-    /* KLÍČOVÉ: Dynamický padding vpravo podle velikosti písma */
-    padding-right: 0.2em; 
-    margin-right: -0.2em; 
+    overflow: hidden; display: block;
+    padding-bottom: 20px; margin-bottom: -20px;
+    padding-right: 0.2em; margin-right: -0.2em; 
 } 
-
 .hero-text h1 {
-    /* RADIKÁLNÍ ZMĚNA VELIKOSTI */
-    /* 9.5vw je maximum, aby se slovo EXPERIENCE vešlo */
-    /* 10rem je strop, aby to na 27" monitoru nebylo obří */
     font-size: clamp(2.5rem, 8.5vw, 10rem); 
-    
-    line-height: 0.95; /* Trochu víc vzduchu mezi řádky */
-    text-transform: uppercase;
-    font-weight: 800; 
-    letter-spacing: -0.02em;
-    margin: 0;
-    
-    /* Zabrání zalomení, text zůstane v jednom řádku */
-    white-space: nowrap; 
+    line-height: 0.95; text-transform: uppercase;
+    font-weight: 800; letter-spacing: -0.02em;
+    margin: 0; white-space: nowrap; 
 }
-
-.outline { 
-    -webkit-text-stroke: 1px var(--text); 
-    color: transparent; 
-}
-
+.outline { -webkit-text-stroke: 1px var(--text); color: transparent; }
 .hero-sub {
-    margin-top: 3rem; 
-    display: flex; 
-    justify-content: space-between;
-    font-family: var(--font-mono); 
-    font-size: 0.9rem; 
-    opacity: 0.7;
-    border-top: 1px solid rgba(255,255,255,0.2); 
-    padding-top: 1rem;
-    width: 100%;
+    margin-top: 3rem; display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 0.9rem; opacity: 0.7;
+    border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem; width: 100%;
 }
-/* MARQUEE */
+
+/* -----------------------------------------------------------------
+   SECTIONS: MARQUEE & WORK
+   ----------------------------------------------------------------- */
 .marquee-wrapper {
     background: var(--accent); color: var(--bg);
     padding: 1.5rem 0; overflow: hidden;
@@ -197,12 +134,8 @@ nav {
     margin: 4rem 0; border: 2px solid var(--bg);
     width: 105%; margin-left: -2.5%;
 }
-.marquee {
-    display: flex; white-space: nowrap; font-family: var(--font-mono);
-    font-size: 2rem; font-weight: bold;
-}
+.marquee { display: flex; white-space: nowrap; font-family: var(--font-mono); font-size: 2rem; font-weight: bold; }
 
-/* WORK - NEW LAYOUT (Cinema Mode) */
 .work { padding: 4rem 4vw; position: relative; }
 .work-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 4rem; }
 .work-left { width: 100%; flex: 1; }
@@ -210,14 +143,8 @@ nav {
 .section-head {
     display: flex; justify-content: space-between; align-items: baseline;
     border-bottom: 2px solid var(--text); padding-bottom: 1rem; margin-bottom: 4rem;
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    /* Pokud by selhal JS, ať je to vidět: */
-    opacity: 1; 
-    visibility: visible;
+    position: relative; z-index: 5;
 }
-
 .section-head span { font-family: var(--font-mono); color: var(--accent); }
 .section-head h2 { font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; }
 
@@ -231,10 +158,8 @@ nav {
 .p-info h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 0.5rem; text-transform: uppercase; transition: 0.3s; }
 .p-info p { font-family: var(--font-mono); opacity: 0.6; }
 
-/* Fixed Image Section */
 .work-right {
-    width: 40%; height: 60vh; position: sticky; top: 20vh;
-    display: none; /* Hidden on mobile */
+    width: 40%; height: 60vh; position: sticky; top: 20vh; display: none;
 }
 .img-container { width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 4px; }
 .p-img {
@@ -244,14 +169,15 @@ nav {
 }
 .p-img.active { opacity: 1; transform: scale(1); }
 
-/* SERVICES (NEW) */
+/* -----------------------------------------------------------------
+   SECTIONS: SERVICES, ABOUT, CONTACT
+   ----------------------------------------------------------------- */
 .services { padding: 4rem 4vw; border-top: 1px solid rgba(255,255,255,0.1); }
 .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .service-item h3 { font-size: 2rem; margin-bottom: 2rem; color: var(--accent); }
 .service-item ul { list-style: none; font-family: var(--font-mono); font-size: 1.1rem; line-height: 2; }
 .service-item li::before { content: "→ "; color: var(--accent); }
 
-/* ABOUT */
 .about { padding: 10rem 4vw; background: var(--text); color: var(--bg); }
 .big-statement {
     font-size: clamp(1.8rem, 5vw, 5rem); font-weight: 800;
@@ -259,7 +185,6 @@ nav {
 }
 .highlight { color: #555; font-style: italic; }
 
-/* CONTACT */
 .contact { padding: 6rem 4vw; max-width: 900px; margin: 0 auto; }
 form { display: flex; flex-direction: column; gap: 3rem; }
 .input-wrap { display: flex; flex-direction: column; gap: 1rem; }
@@ -278,36 +203,156 @@ button {
 }
 button:hover { background: var(--accent); }
 
+/* -----------------------------------------------------------------
+   FOOTER & RESPONSIVE
+   ----------------------------------------------------------------- */
 footer {
     margin-top: 6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     font-family: var(--font-mono); font-size: 0.8rem; opacity: 0.5;
 }
 .socials a { margin-right: 1rem; color: inherit; text-decoration: none; }
+.meta-info { display: flex; gap: 1rem; opacity: 0.6; }
 
-/* RESPONSIVE */
-@media (min-width: 1024px) {
-    .work-right { display: block; } /* Show images only on desktop */
-}
-
-@media (max-width: 768px) {
-    .cursor { display: none; }
-    * { cursor: auto; }
-    .hero-text h1 { font-size: 14vw; line-height: 1; }
-    .hero-sub { flex-direction: column; gap: 1rem; }
-    
-    .work-container { flex-direction: column; }
-    .services-grid { grid-template-columns: 1fr; }
-    .work-right { display: none; }
-    .about { padding: 6rem 4vw; }
-    .contact { padding: 4rem 4vw; }
-}
-.meta-info {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    opacity: 0.6;
-    display: flex;
-    gap: 1rem;
-}
-/* Blikající dvojtečka */
 .blink { animation: blinker 1s linear infinite; }
 @keyframes blinker { 50% { opacity: 0; } }
+
+@media (min-width: 1024px) {
+    .work-right { display: block; }
+}
+
+/* =========================================
+   MOBILE & RESPONSIVE FIXES (NO WRAP VERSION)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. GLOBÁLNÍ RESET PRO MOBIL */
+    html, body {
+        overflow-x: hidden !important; 
+        width: 100vw;
+        position: relative;
+    }
+
+    /* Vypnout kurzor na dotykových zařízeních */
+    .cursor { display: none !important; }
+    * { cursor: auto !important; }
+
+    /* Zmenšení odsazení na celém webu */
+    nav, .hero, .work, .services, .about, .contact {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    /* 2. HERO SEKCE */
+    .hero {
+        padding-top: 100px; 
+        justify-content: center;
+        min-height: 85vh; 
+    }
+
+    .hero-text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+
+    .line-mask {
+        width: 100%;
+        margin-bottom: -5px; 
+        padding-bottom: 5px;
+    }
+
+    .hero-text h1 {
+        font-size: 7.5vw !important; /* Vrátil jsem 11.5vw, 7.5vw je na mobil moc malé */
+        white-space: nowrap !important; 
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.03em; 
+    }
+
+    .hero-sub {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 3rem;
+        text-align: left;
+        font-size: 0.8rem;
+    }
+
+    /* 3. MARQUEE */
+    .marquee-wrapper {
+        width: 120%; 
+        margin-left: -10%;
+        transform: rotate(-2deg); 
+        padding: 1rem 0;
+    }
+    .marquee { font-size: 1.2rem; }
+
+    /* 4. PROJEKTY (WORK) */
+    .work-container { 
+        flex-direction: column; 
+        gap: 3rem;
+    }
+    .section-head { margin-bottom: 2rem; align-items: center; }
+    .section-head h2 { font-size: 2rem; }
+    .project-item {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+    }
+    .p-info h3 { font-size: 1.8rem; line-height: 1.2; }
+    .work-right { display: none; } /* Skrytí obrázků */
+
+    /* 5. SLUŽBY (SERVICES) */
+    .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .service-item h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .service-item ul { padding-left: 0; font-size: 1rem; }
+
+    /* 6. ABOUT TEXT */
+    .about { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+    .big-statement {
+        font-size: 1.8rem !important; 
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+
+    /* 7. KONTAKT & FOOTER */
+    .contact { max-width: 100%; }
+    form { gap: 2rem; }
+    .input-wrap label { font-size: 0.75rem; }
+    input, textarea { font-size: 1.1rem; width: 100%; border-radius: 0; }
+    button { padding: 1.5rem; width: 100%; font-size: 1rem; }
+
+    footer {
+        flex-direction: column; gap: 2rem;
+        text-align: center; padding-bottom: 2rem;
+    }
+    .socials { display: flex; flex-direction: column; gap: 1.5rem; }
+    .socials a { margin: 0; font-size: 1.2rem; }
+    .meta-info { justify-content: center; }
+
+    /* =========================================
+       8. NOVÁ ÚPRAVA MENU PRO MOBIL
+       ========================================= */
+    .mobile-menu-overlay {
+        justify-content: center; /* Vycentrovat obsah na střed */
+        padding-bottom: 10vh; /* Optické zvednutí */
+    }
+
+    .mobile-links {
+        gap: 1.5rem; /* Menší mezery mezi odkazy (bylo moc roztahané) */
+    }
+
+    .m-link {
+        font-size: 2rem !important; /* Zmenšeno z 3rem na 2rem */
+        font-weight: 700; /* Trochu tenčí než bold */
+        -webkit-text-stroke: 0px !important; /* Žádný obrys, jen plná barva */
+        color: var(--text) !important;
+    }
+    
+    .mobile-footer {
+        bottom: 3rem; 
+        font-size: 0.75rem;
+    }
+}
