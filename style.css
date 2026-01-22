@@ -161,7 +161,7 @@ nav {
     /* RADIKÁLNÍ ZMĚNA VELIKOSTI */
     /* 9.5vw je maximum, aby se slovo EXPERIENCE vešlo */
     /* 10rem je strop, aby to na 27" monitoru nebylo obří */
-    font-size: clamp(2.5rem, 9.5vw, 10rem); 
+    font-size: clamp(2.5rem, 8.5vw, 10rem); 
     
     line-height: 0.95; /* Trochu víc vzduchu mezi řádky */
     text-transform: uppercase;
